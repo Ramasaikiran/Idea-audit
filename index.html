@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IdeaAudit — Is Your Startup Idea Worth 6 Months of Your Life?</title>
-  <meta name="description" content="Free AI-powered startup idea validator. Get a BUILD/AVOID/PIVOT verdict, competitor analysis, market gaps, and a 4-week MVP plan in 15 seconds. No login required." />
+  <meta name="description"
+    content="Free AI-powered startup idea validator. Get a BUILD/AVOID/PIVOT verdict, competitor analysis, market gaps, and a 4-week MVP plan in 15 seconds. No login required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
+
 <body>
 
   <!-- ─── NAVBAR ─────────────────────────────────────────────────── -->
@@ -52,14 +57,24 @@
         </h1>
 
         <p class="subhead anim-enter" data-delay="2">
-          We map every competitor, expose exactly where they failed — then give you a founder-specific action plan in 15 seconds.
+          We map every competitor, expose exactly where they failed — then give you a founder-specific action plan in 15
+          seconds.
         </p>
 
         <!-- Stats -->
         <div class="stats-row anim-enter" data-delay="3">
-          <div class="stat"><div class="stat-num">2,400+</div><div class="stat-label">Ideas audited</div></div>
-          <div class="stat"><div class="stat-num">15s</div><div class="stat-label">Avg analysis time</div></div>
-          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free, no login</div></div>
+          <div class="stat">
+            <div class="stat-num">2,400+</div>
+            <div class="stat-label">Ideas audited</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">15s</div>
+            <div class="stat-label">Avg analysis time</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Free, no login</div>
+          </div>
         </div>
 
         <!-- INPUT CARD -->
@@ -73,13 +88,12 @@
             <span class="chrome-title">idea.terminal</span>
             <div class="chrome-status">
               <span class="status-dot"></span>
-              <span class="status-text">CLAUDE AI</span>
             </div>
           </div>
           <div class="input-body">
             <div class="input-prompt">$ DESCRIBE YOUR STARTUP IDEA</div>
             <textarea id="idea-input" maxlength="500" rows="4"
-              placeholder="e.g. An AI tool that helps Indian college students find relevant internships and auto-fills applications..."></textarea>
+              placeholder="e.g. An AI tool that helps Indian college students find relevant internships and auto-fills applications"></textarea>
           </div>
           <div class="input-footer">
             <div class="input-footer-left">
@@ -94,7 +108,6 @@
         <div class="trust-pills anim-enter" data-delay="5">
           <span class="pill">✓ Free forever</span>
           <span class="pill">✓ No login needed</span>
-          <span class="pill pill-green pill-dot">Claude AI</span>
           <span class="pill">✓ Results in ~15s</span>
         </div>
       </div>
@@ -103,14 +116,14 @@
       <div class="vs-section">
         <div class="section-label amber">
           <div class="sl-line"></div>
-          <span>Why not Gemini / Perplexity / ChatGPT?</span>
+          <span>Why not LLMS?</span>
         </div>
         <h2 class="vs-headline">
           They write you a research essay.<br />
           <span class="amber">We make you a decision.</span>
         </h2>
         <div class="comparison-grid">
-          <div class="cg-header cg-them"><span>GEMINI / PERPLEXITY / CHATGPT</span></div>
+          <div class="cg-header cg-them"><span>LLMS</span></div>
           <div class="cg-header cg-us"><span>IDEAAUDIT</span></div>
           <!-- Rows injected by JS -->
         </div>
@@ -158,8 +171,8 @@
       <div class="loading-ring-wrap">
         <svg width="172" height="172" viewBox="0 0 172 172">
           <circle cx="86" cy="86" r="72" fill="none" stroke="var(--border)" stroke-width="4" />
-          <circle cx="86" cy="86" r="60" fill="none" stroke="var(--border)" stroke-width="1"
-            stroke-dasharray="3 10" opacity=".4" class="spin-circle" />
+          <circle cx="86" cy="86" r="60" fill="none" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 10"
+            opacity=".4" class="spin-circle" />
           <circle id="loading-arc" cx="86" cy="86" r="72" fill="none" stroke="var(--accent)" stroke-width="4"
             stroke-linecap="round" transform="rotate(-90 86 86)" class="loading-arc" />
         </svg>
@@ -230,11 +243,15 @@
       <!-- Summary + Why Now -->
       <div class="summary-whynow">
         <div class="summary-panel">
-          <div class="section-label accent"><div class="sl-line"></div><span>Executive Summary</span></div>
+          <div class="section-label accent">
+            <div class="sl-line"></div><span>Executive Summary</span>
+          </div>
           <p id="result-summary" class="dm-serif text-secondary lh-18"></p>
         </div>
         <div class="whynow-panel">
-          <div class="section-label green"><div class="sl-line"></div><span>Why Now</span></div>
+          <div class="section-label green">
+            <div class="sl-line"></div><span>Why Now</span>
+          </div>
           <p id="result-whynow" class="dm-serif italic text-green lh-17"></p>
         </div>
       </div>
@@ -246,32 +263,44 @@
       <div class="comp-gaps-row">
         <div class="competitors-panel">
           <div class="comp-header">
-            <div class="section-label amber"><div class="sl-line"></div><span>Existing Players</span></div>
+            <div class="section-label amber">
+              <div class="sl-line"></div><span>Existing Players</span>
+            </div>
             <span class="pill pill-green pill-dot">Live data</span>
           </div>
           <div id="competitors-list" class="competitors-list"></div>
         </div>
         <div class="gaps-panel">
-          <div class="section-label green"><div class="sl-line"></div><span>Opportunity Gaps</span></div>
+          <div class="section-label green">
+            <div class="sl-line"></div><span>Opportunity Gaps</span>
+          </div>
           <div id="gaps-list" class="gaps-list"></div>
         </div>
       </div>
 
       <!-- MVP -->
       <div class="mvp-block">
-        <div class="mvp-label"><div>4-WEEK</div><div>MVP</div></div>
+        <div class="mvp-label">
+          <div>4-WEEK</div>
+          <div>MVP</div>
+        </div>
         <p id="result-mvp" class="dm-serif text-mint lh-175"></p>
       </div>
 
       <!-- Roadmap -->
       <div class="roadmap-block">
-        <div class="section-label accent"><div class="sl-line"></div><span>Implementation Roadmap</span></div>
+        <div class="section-label accent">
+          <div class="sl-line"></div><span>Implementation Roadmap</span>
+        </div>
         <div id="roadmap-phases" class="roadmap-phases"></div>
       </div>
 
       <!-- Investor Take -->
       <div class="investor-block">
-        <div class="investor-label"><div>VC</div><div>TAKE</div></div>
+        <div class="investor-label">
+          <div>VC</div>
+          <div>TAKE</div>
+        </div>
         <p id="result-investor" class="dm-serif italic text-purple lh-175"></p>
       </div>
 
@@ -285,7 +314,8 @@
           <div class="share-link-label">SHAREABLE LINK — long press to copy on mobile</div>
           <div id="result-share-link-text" class="share-link-full"></div>
         </div>
-        <p id="result-share-hint" class="share-hint center">Share this audit with investors, co-founders, or mentors — link stays live for 30 days</p>
+        <p id="result-share-hint" class="share-hint center">Share this audit with investors, co-founders, or mentors —
+          link stays live for 30 days</p>
       </div>
 
     </div>
@@ -293,4 +323,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

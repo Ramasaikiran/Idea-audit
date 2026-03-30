@@ -3,8 +3,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 // ─── CONFIG ───────────────────────────────────────────────────────
-// ⚠️ Set your Anthropic API key here (do NOT commit real keys to GitHub)
-const API_KEY = "YOUR_ANTHROPIC_API_KEY_HERE";
+// API key is stored server-side in server.js — not needed here
 
 const SYSTEM_PROMPT = `You are a ruthless startup analyst with deep knowledge of the global startup ecosystem. Use your extensive knowledge of competitors, funding, market trends, and startup failures to respond ONLY with valid JSON, no markdown:
 {
@@ -424,23 +423,15 @@ async function analyze() {
   const timeout = setTimeout(() => controller.abort(), 90000);
 
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch("/api/analyze", {
       method: "POST",
       signal: controller.signal,
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": API_KEY,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerously-allow-browser": "true"
       },
       body: JSON.stringify({
-        model: "claude-3-5-sonnet-20241022",
-        max_tokens: 4096,
-        system: SYSTEM_PROMPT,
-        messages: [{
-          role: "user",
-          content: `Analyze this startup idea. Respond with ONLY a raw JSON object. No markdown. No backticks. No explanation. Start your response with { and end with }. Idea: ${idea}`
-        }],
+        idea: idea,
+        systemPrompt: SYSTEM_PROMPT,
       }),
     });
 
