@@ -38,35 +38,35 @@ const SAMPLE_IDEAS = [
 ];
 
 const LOADING_STEPS = [
-  { label: "Scanning market landscape",      pct: 14 },
-  { label: "Scanning competitor landscape",   pct: 30 },
-  { label: "Analyzing failure patterns",      pct: 47 },
-  { label: "Mapping opportunity gaps",        pct: 63 },
+  { label: "Scanning market landscape", pct: 14 },
+  { label: "Scanning competitor landscape", pct: 30 },
+  { label: "Analyzing failure patterns", pct: 47 },
+  { label: "Mapping opportunity gaps", pct: 63 },
   { label: "Building implementation roadmap", pct: 80 },
-  { label: "Generating verdict",              pct: 96 },
+  { label: "Generating verdict", pct: 96 },
 ];
 
 const COMPARISON_ROWS = [
-  ["📄 15-page research dump",        "✓  Crisp BUILD / AVOID / PIVOT verdict"],
-  ["⏱  5–10 minutes to read",          "✓  ~15 seconds, founder-ready output"],
-  ["🔍 Tells you what exists",         "✓  Shows exactly where competitors failed"],
-  ["❌ No verdict or recommendation",  "✓  Scored: Market, Competition, Timing"],
-  ["❌ No MVP or implementation plan", "✓  4-week MVP + 3-phase roadmap"],
-  ["❌ Built for researchers",         "✓  Built for founders who need to act"],
-  ["💳 Requires paid subscription",   "✓  100% free, no login required"],
+  [" 15-page research dump", " Crisp BUILD / AVOID / PIVOT verdict"],
+  ["  5–10 minutes to read", "  ~15 seconds, founder-ready output"],
+  [" Tells you what exists", "  Shows exactly where competitors failed"],
+  [" No verdict or recommendation", "  Scored: Market, Competition, Timing"],
+  [" No MVP or implementation plan", "  4-week MVP + 3-phase roadmap"],
+  [" Built for researchers", "  Built for founders who need to act"],
+  [" Requires paid subscription", "  100% free, no login required"],
 ];
 
 const FEATURES = [
-  { n:"01", t:"Verdict",          d:"BUILD / AVOID / PIVOT with brutal reason" },
-  { n:"02", t:"Score Analysis",   d:"Market, competition, timing — 0–100 each" },
-  { n:"03", t:"Live Competitors", d:"Real companies + verified failure points" },
-  { n:"04", t:"Market Gaps",      d:"What nobody has built yet — your opening" },
-  { n:"05", t:"Killer Feature",   d:"One feature that lets you win" },
-  { n:"06", t:"Why Now",          d:"Live market signals for timing" },
-  { n:"07", t:"4-Week MVP",       d:"Exactly what to ship to validate" },
-  { n:"08", t:"Roadmap",          d:"3-phase plan with specific actions" },
-  { n:"09", t:"Revenue Model",    d:"Specific monetization path" },
-  { n:"10", t:"Investor Take",    d:"Honest VC fundability read" },
+  { n: "01", t: "Verdict", d: "BUILD / AVOID / PIVOT with brutal reason" },
+  { n: "02", t: "Score Analysis", d: "Market, competition, timing — 0–100 each" },
+  { n: "03", t: "Live Competitors", d: "Real companies + verified failure points" },
+  { n: "04", t: "Market Gaps", d: "What nobody has built yet — your opening" },
+  { n: "05", t: "Killer Feature", d: "One feature that lets you win" },
+  { n: "06", t: "Why Now", d: "Live market signals for timing" },
+  { n: "07", t: "4-Week MVP", d: "Exactly what to ship to validate" },
+  { n: "08", t: "Roadmap", d: "3-phase plan with specific actions" },
+  { n: "09", t: "Revenue Model", d: "Specific monetization path" },
+  { n: "10", t: "Investor Take", d: "Honest VC fundability read" },
 ];
 
 // ─── STATE ────────────────────────────────────────────────────────
@@ -86,7 +86,7 @@ const views = { home: "home-view", loading: "loading-view", error: "error-view",
 
 // ─── UTILS ────────────────────────────────────────────────────────
 function scoreColor(s) { return s >= 70 ? "#00e5a0" : s >= 45 ? "#ff9f43" : "#f5a623"; }
-function scoreGlow(s)  { return s >= 70 ? "rgba(0,230,118,.4)" : s >= 45 ? "rgba(255,171,0,.4)" : "rgba(255,45,85,.4)"; }
+function scoreGlow(s) { return s >= 70 ? "rgba(0,230,118,.4)" : s >= 45 ? "rgba(255,171,0,.4)" : "rgba(255,45,85,.4)"; }
 
 // ─── VIEW MANAGEMENT ──────────────────────────────────────────────
 function showView(name) {
@@ -226,9 +226,9 @@ function renderResult() {
 
   // Verdict
   const cfg = {
-    BUILD: { color: "var(--green)",  cls: "build", icon: "↑" },
+    BUILD: { color: "var(--green)", cls: "build", icon: "↑" },
     AVOID: { color: "var(--accent)", cls: "avoid", icon: "✕" },
-    PIVOT: { color: "var(--amber)",  cls: "pivot", icon: "◆" },
+    PIVOT: { color: "var(--amber)", cls: "pivot", icon: "◆" },
   };
   const vc = cfg[r.verdict] || cfg.PIVOT;
   const vb = $("verdict-block");
@@ -243,10 +243,10 @@ function renderResult() {
   // Score Rings
   const rings = $("score-rings");
   rings.innerHTML = "";
-  rings.appendChild(createScoreRing(r.marketScore,      "Market",      0));
+  rings.appendChild(createScoreRing(r.marketScore, "Market", 0));
   rings.appendChild(createScoreRing(r.competitionScore, "Competition", 150));
-  rings.appendChild(createScoreRing(r.timingScore,      "Timing",      300));
-  rings.appendChild(createScoreRing(r.overallScore,     "Overall",     450));
+  rings.appendChild(createScoreRing(r.timingScore, "Timing", 300));
+  rings.appendChild(createScoreRing(r.overallScore, "Overall", 450));
 
   // Summary + Why Now
   $("result-summary").textContent = r.summary;
@@ -258,8 +258,8 @@ function renderResult() {
   [
     { k: "Killer Feature", v: r.killerFeature, c: "var(--accent)" },
     { k: "Target Segment", v: r.targetSegment, c: "var(--purple)" },
-    { k: "Revenue Model",  v: r.revenueModel,  c: "var(--green)" },
-    { k: "Biggest Risk",   v: r.biggestRisk,   c: "var(--amber)" },
+    { k: "Revenue Model", v: r.revenueModel, c: "var(--green)" },
+    { k: "Biggest Risk", v: r.biggestRisk, c: "var(--amber)" },
   ].forEach(({ k, v, c }) => {
     const card = document.createElement("div");
     card.className = "signal-card";

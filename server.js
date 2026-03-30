@@ -9,11 +9,11 @@ const GEMINI_MODEL = "gemini-2.0-flash";
 
 const MIME = {
   ".html": "text/html",
-  ".css":  "text/css",
-  ".js":   "application/javascript",
+  ".css": "text/css",
+  ".js": "application/javascript",
   ".json": "application/json",
-  ".png":  "image/png",
-  ".ico":  "image/x-icon",
+  ".png": "image/png",
+  ".ico": "image/x-icon",
 };
 
 const server = http.createServer((req, res) => {
@@ -126,7 +126,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  ✅ IdeaAudit server running at:\n`);
+  console.log(`\n   IdeaAudit server running at:\n`);
   console.log(`     → http://localhost:${PORT}\n`);
   console.log(`  API proxy active at /api/analyze (Gemini ${GEMINI_MODEL})\n`);
 });
