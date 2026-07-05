@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   IdeaAudit — Vanilla JS Application Logic
+   IdeaAudit: Vanilla JS Application Logic
    ═══════════════════════════════════════════════════════════════ */
 
 // ─── CONFIG ───────────────────────────────────────────────────────
-// API key is stored server-side in server.js — not needed here
+// API key is stored server-side in api/analyze.js. Not needed here
 
 const SYSTEM_PROMPT = `You are a ruthless startup analyst with deep knowledge of the global startup ecosystem. Use your extensive knowledge of competitors, funding, market trends, and startup failures to respond ONLY with valid JSON, no markdown:
 {
@@ -58,9 +58,9 @@ const COMPARISON_ROWS = [
 
 const FEATURES = [
   { n: "01", t: "Verdict", d: "BUILD / AVOID / PIVOT with brutal reason" },
-  { n: "02", t: "Score Analysis", d: "Market, competition, timing — 0–100 each" },
+  { n: "02", t: "Score Analysis", d: "Market, competition, timing. 0 to 100 each" },
   { n: "03", t: "Live Competitors", d: "Real companies + verified failure points" },
-  { n: "04", t: "Market Gaps", d: "What nobody has built yet — your opening" },
+  { n: "04", t: "Market Gaps", d: "What nobody has built yet. Your opening" },
   { n: "05", t: "Killer Feature", d: "One feature that lets you win" },
   { n: "06", t: "Why Now", d: "Live market signals for timing" },
   { n: "07", t: "4-Week MVP", d: "Exactly what to ship to validate" },
@@ -312,7 +312,7 @@ function renderResult() {
       <div class="roadmap-phase-title">${ph.focus}</div>
       ${(ph.actions || []).map(a => `
         <div class="roadmap-action">
-          <span class="roadmap-action-dash">—</span>
+          <span class="roadmap-action-dash">→</span>
           <span class="roadmap-action-text">${a}</span>
         </div>`).join("")}`;
     phases.appendChild(phDiv);
@@ -369,7 +369,7 @@ async function copyShare() {
         $("result-share-btn").classList.remove("copied");
       }, 3000);
     } catch {
-      $("share-error").textContent = "Auto-copy blocked — long-press the link below to copy";
+      $("share-error").textContent = "Auto-copy blocked. Long-press the link below to copy";
       $("share-error").classList.remove("hidden");
     }
 
@@ -454,9 +454,9 @@ async function analyze() {
 
     let parsed;
     try { parsed = JSON.parse(allText.slice(start, end + 1)); }
-    catch { throw new Error("JSON parse failed — model response was malformed. Try again."); }
+    catch { throw new Error("JSON parse failed. Model response was malformed. Try again."); }
 
-    if (!parsed.verdict) throw new Error("Analysis incomplete — please try again.");
+    if (!parsed.verdict) throw new Error("Analysis incomplete. Please try again.");
 
     result = parsed;
     renderResult();

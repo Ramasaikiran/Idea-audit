@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   IdeaAudit — Design System & Styles
+   IdeaAudit: Design System & Styles
    ═══════════════════════════════════════════════════════════════ */
 
 /* ─── CSS Custom Properties (Color Tokens) ────────────────────── */
@@ -40,7 +40,7 @@ button { cursor: pointer; }
 .accent    { color: var(--accent); }
 .amber     { color: var(--amber); }
 .green     { color: var(--green); }
-.glow      { text-shadow: 0 0 80px rgba(245,166,35,.33); }
+.glow      { text-shadow: 0 2px 24px rgba(245,166,35,.22); }
 .dm-serif  { font-family: var(--font-serif); }
 .italic    { font-style: italic; }
 .center    { text-align: center; }
@@ -57,7 +57,7 @@ button { cursor: pointer; }
 @keyframes pulse      { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.4; transform:scale(.75) } }
 @keyframes spin       { from{ transform:rotate(0deg) } to{ transform:rotate(360deg) } }
 @keyframes fadeUp     { from{ opacity:0; transform:translateY(18px) } to{ opacity:1; transform:translateY(0) } }
-@keyframes btnPulse   { 0%,100%{ box-shadow:0 0 28px rgba(245,166,35,.44) } 50%{ box-shadow:0 0 48px rgba(245,166,35,.72) } }
+@keyframes btnSettle  { 0%{ box-shadow:0 0 0 rgba(245,166,35,0) } 100%{ box-shadow:0 4px 20px rgba(245,166,35,.35) } }
 
 /* ─── View Container ──────────────────────────────────────────── */
 .view { min-height: 100vh; background: var(--bg); }
@@ -180,8 +180,14 @@ button { cursor: pointer; }
   color: white; border: none; border-radius: 5px;
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
-  box-shadow: 0 0 28px rgba(245,166,35,.27);
-  animation: btnPulse 3s ease infinite; transition: all .3s;
+  animation: btnSettle .6s ease forwards; transition: transform .15s ease, box-shadow .15s ease;
+}
+.run-audit-btn:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(245,166,35,.45);
+}
+.run-audit-btn:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px;
 }
 .run-audit-btn.disabled {
   background: var(--border); color: var(--text-muted);
